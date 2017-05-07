@@ -10,6 +10,7 @@
 
 ## Todos
 
-1. Style components to look nicer.
-2. Instead of just adding a shift day, also add a shift time, or even a full weeks schedule
-3. Deploy
+1. Better form validation for employee numbers
+2. Style components to look nicer.
+3. Instead of just adding a shift day, also add a shift time, or even a full weeks schedule
+4. Deploy
