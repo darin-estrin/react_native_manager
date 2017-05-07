@@ -5,46 +5,46 @@ import { emailChanged, passwordChanged, loginUser, signupUser } from '../actions
 import { Card, CardSection, Input, Button, Spinner } from './common';
 
 class LoginForm extends Component {
-    onEmailChange(text) {
-        this.props.emailChanged(text);
+  onEmailChange(text) {
+    this.props.emailChanged(text);
+  }
+
+  onPasswordChange(text) {
+    this.props.passwordChanged(text);
+  }
+
+  onLoginPress() {
+    const { email, password } = this.props;
+
+    this.props.loginUser({ email, password });
+  }
+
+  onSignupPress() {
+    const { email, password } = this.props;
+
+    this.props.signupUser({ email, password });
+  }
+
+  renderButtons() {
+    if (this.props.loading) {
+      return (
+        <CardSection>  
+          <Spinner size='large' />
+        </CardSection>
+      );
     }
 
-    onPasswordChange(text) {
-        this.props.passwordChanged(text);
-    }
-
-    onLoginPress() {
-        const { email, password } = this.props;
-
-        this.props.loginUser({ email, password });
-    }
-
-    onSignupPress() {
-        const { email, password } = this.props;
-
-        this.props.signupUser({ email, password });
-    }
-
-    renderButtons() {
-        if (this.props.loading) {
-            return (
-                <CardSection>  
-                    <Spinner size='large' />
-                </CardSection>
-            );
-        }
-
-        return (
-            <CardSection>
-                <Button onPress={this.onLoginPress.bind(this)}>
-                    Login
-                </Button>
-                <Button onPress={this.onSignupPress.bind(this)}>
-                    Sign Up
-                </Button>
-            </CardSection>
-        );
-    }
+    return (
+      <CardSection>
+        <Button onPress={this.onLoginPress.bind(this)}>
+          Login
+        </Button>
+        <Button onPress={this.onSignupPress.bind(this)}>
+          Sign Up
+        </Button>
+      </CardSection>
+    );
+  }
     
     render() {
         return (
@@ -79,22 +79,22 @@ class LoginForm extends Component {
 }
 
 const styles = {
-    errorTextStyle: {
-        fontSize: 20,
-        alignSelf: 'center',
-        color: 'red'
-    }
+  errorTextStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
+  }
 };
 
 const mapStateToProps = ({ auth }) => {
-    const { email, password, error, loading } = auth;
+  const { email, password, error, loading } = auth;
 
-    return { email, password, error, loading };
+  return { email, password, error, loading };
 };
 
 export default connect(mapStateToProps, {
-    emailChanged,
-    passwordChanged,
-    loginUser,
-    signupUser
+  emailChanged,
+  passwordChanged,
+  loginUser,
+  signupUser
  })(LoginForm);

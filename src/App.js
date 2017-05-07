@@ -7,26 +7,26 @@ import reducers from './reducers';
 import Router from './Router';
 
 class App extends Component {
-    componentWillMount() {
-        const config = {
-            apiKey: 'AIzaSyClCBJn97polD46Xc6fzDcfOWWUwrQcOk8',
-            authDomain: 'manager-f6966.firebaseapp.com',
-            databaseURL: 'https://manager-f6966.firebaseio.com',
-            projectId: 'manager-f6966',
-            storageBucket: 'manager-f6966.appspot.com',
-            messagingSenderId: '530055746697'
-        };
+  componentWillMount() {
+    const config = {
+      apiKey: 'AIzaSyClCBJn97polD46Xc6fzDcfOWWUwrQcOk8',
+      authDomain: 'manager-f6966.firebaseapp.com',
+      databaseURL: 'https://manager-f6966.firebaseio.com',
+      projectId: 'manager-f6966',
+      storageBucket: 'manager-f6966.appspot.com',
+      messagingSenderId: '530055746697'
+    };
 
-        firebase.initializeApp(config);
-    }
-    render() {
-        const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
-        return (
-            <Provider store={store}>
-                <Router />
-            </Provider>
-        );
-    }
+    firebase.initializeApp(config);
+  }
+  render() {
+    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+    return (
+      <Provider store={store}>
+        <Router />
+      </Provider>
+    );
+  }
 }
 
 export default App;

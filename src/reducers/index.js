@@ -4,7 +4,7 @@ import EmployeeFormReducer from './EmployeeFormReducer';
 import EmployeeReduceer from './EmployeeReducer';
 
 export default combineReducers({
-    auth: AuthReducer,
-    employeeForm: EmployeeFormReducer,
-    employees: EmployeeReduceer
+  auth: AuthReducer,
+  employeeForm: EmployeeFormReducer,
+  employees: EmployeeReduceer
 });
